@@ -6,6 +6,8 @@ const listPullRequestsByCommit = require("../api/listPullRequestsByCommit");
 async function existsopenedPr({ token }) {
   try {
     const { repo, sha } = github.context;
+    core.info(`target commit sha: ${sha}`);
+
     const pullRequests = await listPullRequestsByCommit({
       token,
       repo,
@@ -14,7 +16,7 @@ async function existsopenedPr({ token }) {
 
     return pullRequests.length != 0;
   } catch (err) {
-    core.info(`error: ${err}`);
+    core.error(err);
     return false;
   }
 }

@@ -8,6 +8,7 @@ async function run() {
     core.debug(`GITHUB TOKEN: ${githubToken}`);
 
     const exists = await existsOpenedPr({ token: githubToken });
+    core.info(`exists: ${exists}`);
     core.setOutput("exists", exists);
   } catch (error) {
     core.setFailed(error.message);
