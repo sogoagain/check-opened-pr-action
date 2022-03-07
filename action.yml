@@ -1,13 +1,13 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: "Check opened PR action"
+description: "Check that the commit that triggered the workflow run exists as opened PR."
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
+  github-token:
+    description: "A token to authenticate on behalf of the GitHub App installed on your repository. This is functionally equivalent to the GITHUB_TOKEN secret."
     required: true
-    default: '1000'
+    default: ${{ github.token }}
 outputs:
-  time: # output will be available to future steps
-    description: 'The current time after waiting'
+  exists:
+    description: "true if the commit that triggered the workflow run exists as opened PR, false otherwise."
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  using: "node16"
+  main: "dist/index.js"
