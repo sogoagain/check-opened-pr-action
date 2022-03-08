@@ -21,5 +21,7 @@ Check that the commit that triggered the workflow run exists as an open PR.
 ## Example usage
 
 ```
-uses: actions/check-opened-pr-action@v1.0
+uses: actions/check-opened-pr-action@v0.1
 ```
+
+[See detailed usage](https://github.com/sogoagain/scrambling-text-js/blob/master/.github/workflows/main.yml#L14)

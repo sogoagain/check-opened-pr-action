@@ -1,6 +1,6 @@
 {
   "name": "check-opened-pr-action",
-  "version": "1.0.0",
+  "version": "0.1",
   "description": "Returns whether the commit the action is running on exists as opened PR.",
   "main": "dist/index.js",
   "scripts": {
@@ -22,7 +22,9 @@
     "Pull request",
     "opened",
     "opened PR",
-    "opened pr action"
+    "opened pr action",
+    "check pr",
+    "check opend pr"
   ],
   "author": "",
   "license": "MIT",
