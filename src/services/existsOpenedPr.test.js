@@ -1,7 +1,7 @@
 const existsopenedPr = require("./existsOpenedPr");
 const listPullRequestsByCommit = require("../api/listPullRequestsByCommit");
 
-const PULL_REQUESTS = require("../__fixtures__/pullRequests");
+const { close, open } = require("../__fixtures__/pullRequests");
 
 jest.mock("../api/listPullRequestsByCommit");
 
@@ -15,7 +15,7 @@ beforeEach(() => {
 describe("existsOpenPr", () => {
   describe("if there is opened PR", () => {
     beforeEach(() => {
-      listPullRequestsByCommit.mockResolvedValue(PULL_REQUESTS);
+      listPullRequestsByCommit.mockResolvedValue(open);
     });
 
     test("returns true", async () => {
@@ -25,7 +25,19 @@ describe("existsOpenPr", () => {
     });
   });
 
-  describe("if there is no opened PR", () => {
+  describe("if there is only close PR", () => {
+    beforeEach(() => {
+      listPullRequestsByCommit.mockResolvedValue(close);
+    });
+
+    test("returns false", async () => {
+      const exists = await existsopenedPr({ token: "GITHUB_TOKEN" });
+
+      expect(exists).toEqual(false);
+    });
+  });
+
+  describe("if there is no PR", () => {
     beforeEach(() => {
       listPullRequestsByCommit.mockResolvedValue([]);
     });

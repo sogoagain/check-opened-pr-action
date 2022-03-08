@@ -14,7 +14,7 @@ async function existsopenedPr({ token }) {
       commitSha: sha,
     });
 
-    return pullRequests.length != 0;
+    return pullRequests.filter((pr) => pr.state == "open").length != 0;
   } catch (err) {
     core.error(err);
     return false;
