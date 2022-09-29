@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/sogoagain/check-opened-pr-action#readme",
   "dependencies": {
-    "@actions/core": "^1.2.5",
+    "@actions/core": "^1.10.0",
     "@actions/github": "^5.0.0"
   },
   "devDependencies": {
